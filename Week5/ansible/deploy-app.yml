@@ -1,0 +1,40 @@
+---
+- name: Deploy Cloud Native Task API
+  hosts: app
+  become: true
+
+  vars:
+    app_name: cloud-native-task-api
+    app_image: armanlohtia/cloud-native-task-api:1.0
+    app_port: 8000
+
+  tasks:
+    - name: Pull application image
+      command: docker pull "{{ app_image }}"
+      register: docker_pull
+      changed_when: "'Downloaded newer image' in docker_pull.stdout or 'Pull complete' in docker_pull.stdout"
+
+    - name: Stop existing application container
+      command: docker rm -f "{{ app_name }}"
+      failed_when: false
+      changed_when: false
+
+    - name: Start application container
+      command: >
+        docker run -d
+        --name "{{ app_name }}"
+        --restart unless-stopped
+        -p "{{ app_port }}:8000"
+        "{{ app_image }}"
+
+    - name: Wait for application to start
+      wait_for:
+        host: 127.0.0.1
+        port: "{{ app_port }}"
+        delay: 3
+        timeout: 30
+
+    - name: Check application health endpoint
+      uri:
+        url: "http://127.0.0.1:{{ app_port }}/health"
+        status_code: 200
