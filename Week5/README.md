@@ -113,6 +113,25 @@ Application health:
 
 curl http://<EC2_PUBLIC_IP>:8000/health
 
+## Week 6 — Day 1: Security Hardening
 
+The Week 5 Terraform configuration was reviewed and hardened as part of Week 6.
 
+### Security improvements
 
+- Removed unnecessary public HTTP port 80 access.
+- Made SSH access configurable through `ssh_allowed_cidr`.
+- Made Task API access configurable through `api_allowed_cidr`.
+- Defaulted SSH and API access to `127.0.0.1/32` instead of exposing them to the internet.
+- Avoided hardcoding external IP addresses in the Terraform configuration.
+- Applied the principle of least privilege to inbound network access.
+- Kept Terraform state and plan files excluded from Git.
+
+### Validation
+
+The Terraform configuration was formatted and validated locally using:
+
+```bash
+terraform fmt
+terraform validate
+git diff --check
