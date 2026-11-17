@@ -15,9 +15,6 @@ app:
   environment: development
   logLevel: info
 
-secret:
-  dbPassword: "demo-password-123"
-
 resources:
   requests:
     cpu: 100m

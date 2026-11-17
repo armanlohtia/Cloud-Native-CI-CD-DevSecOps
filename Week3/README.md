@@ -38,3 +38,14 @@ Week3/
             ├── secret.yaml
             ├── deployment.yaml
             └── service.yaml
+
+## Secrets
+
+Sensitive Kubernetes credentials are not stored in Git.
+
+Before deploying the application, create the required Secret locally:
+
+```bash
+kubectl create secret generic task-api-secret \
+  -n devops-week3 \
+  --from-literal=DB_PASSWORD='<your-password>'
