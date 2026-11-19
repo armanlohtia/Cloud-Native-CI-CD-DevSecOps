@@ -43,7 +43,7 @@ jobs:
         run: docker build -t cloud-native-task-api:ci .
 
       - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: cloud-native-task-api:ci
           format: table
