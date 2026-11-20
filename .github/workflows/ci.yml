@@ -9,6 +9,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     defaults:
       run:
         working-directory: Week2/cloud-native-task-api
@@ -21,11 +24,30 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: Week2/cloud-native-task-api/requirements-dev.txt
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: python -m pip install -r requirements-dev.txt
 
       - name: Run API tests
         run: python -m pytest -v
+
+      - name: Run Ruff
+        run: ruff check .
+
+      - name: Run Bandit
+        run: bandit -r app
+
+      - name: Build Docker image
+        run: docker build -t cloud-native-task-api:ci .
+
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: cloud-native-task-api:ci
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: HIGH,CRITICAL

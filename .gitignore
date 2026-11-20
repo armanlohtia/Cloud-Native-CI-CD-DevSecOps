@@ -28,3 +28,4 @@ Thumbs.db
 
 # Kubernetes local secrets
 Week3/manifests/secret.local.yaml
+*.tar
