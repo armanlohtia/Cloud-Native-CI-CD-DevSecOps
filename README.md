@@ -93,34 +93,138 @@ The repository covers practical work with the following technologies and tools:
 - Maintain structured technical documentation.
 - Understand real-world software delivery practices.
 
-## 📂 Repository Structure
+## 📂 Complete Repository Structure
 
 ```text
 ICP-427D20C3-2026-REPO/
 │
-├── Week1/
-├── Week2/
-│   └── cloud-native-task-api/
-├── Week3/
-├── Week4/
-├── Week5/
-├── Week6/
-│   ├── ci-cd/
-│   ├── evidence/
-│   ├── failure-recovery/
-│   ├── project2-reproduction/
-│   ├── security/
-│   ├── architecture.md
-│   ├── final-report.md
-│   ├── retrospective.md
-│   └── README.md
-│
 ├── .github/
 │   └── workflows/
+│       └── ci.yml
+│
+├── Week1/
+│   ├── evidence/
+│   │   └── linux/
+│   │       ├── application.log
+│   │       ├── errors.log
+│   │       └── incident-report.txt
+│   │
+│   ├── README.md
+│   ├── environment-setup.md
+│   ├── health-check.sh
+│   ├── linux-git-practice.md
+│   └── project-selection.md
+│
+├── Week2/
+│   └── cloud-native-task-api/
+│       ├── .github/
+│       │   └── workflows/
+│       │       └── ci.yml
+│       │
+│       ├── app/
+│       │   ├── __pycache__/
+│       │   │   └── main.cpython-314.pyc
+│       │   └── main.py
+│       │
+│       ├── tests/
+│       │   ├── __pycache__/
+│       │   │   └── test_api.cpython-314-pytest-9.1.1.pyc
+│       │   └── test_api.py
+│       │
+│       ├── .dockerignore
+│       ├── Dockerfile
+│       ├── README.md
+│       ├── requirements-dev.txt
+│       └── requirements.txt
+│
+├── Week3/
+│   ├── helm/
+│   │   └── task-api/
+│   │       ├── templates/
+│   │       │   ├── configmap.yaml
+│   │       │   ├── deployment.yaml
+│   │       │   └── service.yaml
+│   │       │
+│   │       ├── Chart.yaml
+│   │       └── values.yaml
+│   │
+│   ├── manifests/
+│   │   ├── configmap.yaml
+│   │   ├── deployment.yaml
+│   │   ├── namespace.yaml
+│   │   ├── secret.example.yaml
+│   │   └── service.yaml
+│   │
+│   └── README.md
+│
+├── Week4/
+│   ├── argocd/
+│   │   └── task-api-application.yaml
+│   │
+│   ├── evidence/
+│   │   ├── 1-grafana-kubernetes-monitoring.png
+│   │   └── 2-grafana-kubernetes-monitoring.png
+│   │
+│   ├── grafana/
+│   │   └── README.md
+│   │
+│   ├── prometheus/
+│   │   └── README.md
+│   │
+│   └── README.md
+│
+├── Week5/
+│   ├── ansible/
+│   │   ├── deploy-app.yml
+│   │   ├── inventory.ini
+│   │   ├── playbook.yml
+│   │   └── README.md
+│   │
+│   ├── terraform/
+│   │   ├── .gitignore
+│   │   ├── .terraform.lock.hcl
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── provider.tf
+│   │   └── variables.tf
+│   │
+│   └── README.md
+│
+├── Week6/
+│   ├── ci-cd/
+│   │   └── README.md
+│   │
+│   ├── evidence/
+│   │   └── README.md
+│   │
+│   ├── failure-recovery/
+│   │   └── README.md
+│   │
+│   ├── project2-reproduction/
+│   │   └── README.md
+│   │
+│   ├── security/
+│   │   ├── github-pre-push-check.md
+│   │   └── README.md
+│   │
+│   ├── architecture.md
+│   ├── day1-repository-review.md
+│   ├── day2-ci-integration.md
+│   ├── day3-deployment-monitoring.md
+│   ├── day4-security-review.md
+│   ├── day5-failure-recovery.md
+│   ├── day6-project2-reproduction.md
+│   ├── day7-final-submission.md
+│   ├── final-report.md
+│   ├── retrospective.md
+│   ├── submission-checklist.md
+│   └── README.md
 │
 ├── .gitignore
 └── README.md
 ```
+
+**Repository contents:** Six weeks of documented DevOps internship work, practical implementations, configuration files, automation workflows, evidence, and project documentation.
 
 ## 📈 Project Outcomes
 
